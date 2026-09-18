@@ -14,7 +14,7 @@ An intelligent, full-stack AI/ML security platform engineered to detect multi-st
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.0+-EB5424?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-### 🔗 **[Click Here to Launch Live Web Application](https://fraudshield-ai.streamlit.app)**
+### 🔗 **[Explore the Live Web Application]([https://fraudshield-ai.streamlit.app])**
 
 </div>
 
