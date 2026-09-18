@@ -80,8 +80,18 @@ def fraud_by_type_bar(type_dict: Dict) -> go.Figure:
     return fig
 
 def fraud_by_hour_heatmap(hour_data: Dict) -> go.Figure:
-    hours = sorted(hour_data.keys())
-    values = [hour_data[h] for h in hours]
+    # Safely convert keys to integers regardless of whether input is str or int
+    sorted_items = []
+    for k, v in hour_data.items():
+        try:
+            h_int = int(k)
+        except Exception:
+            h_int = 0
+        sorted_items.append((h_int, v))
+    
+    sorted_items.sort(key=lambda x: x[0])
+    hours = [item[0] for item in sorted_items]
+    values = [item[1] for item in sorted_items]
     
     fig = go.Figure(go.Bar(
         x=[f"{h:02d}:00" for h in hours],
@@ -142,8 +152,8 @@ def scam_channel_pie(channel_data: Dict) -> go.Figure:
 
 def shap_waterfall_chart(factors: List[Dict]) -> go.Figure:
     top = factors[:8]
-    names = [f["display_name"] for f in top]
-    values = [f["shap_impact"] for f in top]
+    names = [f.get("display_name", f.get("feature_name", "")) for f in top]
+    values = [f.get("shap_impact", 0.0) for f in top]
     colors = [COLORS["HIGH"] if v > 0 else COLORS["LOW"] for v in values]
     
     fig = go.Figure(go.Bar(

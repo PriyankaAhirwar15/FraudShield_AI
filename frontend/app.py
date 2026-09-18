@@ -1,4 +1,17 @@
+import sys, os
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+FRONTEND_DIR = os.path.abspath(os.path.dirname(__file__))
+if FRONTEND_DIR not in sys.path:
+    sys.path.insert(0, FRONTEND_DIR)
+
 import streamlit as st
+
+try:
+    from frontend.api_client import health_check
+except ImportError:
+    from api_client import health_check
 
 st.set_page_config(
     page_title="FraudShield AI",
@@ -13,19 +26,16 @@ st.set_page_config(
 # Global Dark Theme Injection
 st.markdown("""
 <style>
-    /* Import Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
     }
     
-    /* Main background */
     .stApp {
         background: linear-gradient(135deg, #0a0e1a 0%, #0d1527 50%, #0a1020 100%);
     }
     
-    /* Sidebar Styling */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0d1527 0%, #0a0e1a 100%);
         border-right: 1px solid rgba(52, 152, 219, 0.2);
@@ -35,7 +45,6 @@ st.markdown("""
         color: #cdd6f4 !important;
     }
     
-    /* Metric Cards */
     [data-testid="stMetric"] {
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(52, 152, 219, 0.2);
@@ -58,12 +67,10 @@ st.markdown("""
         color: #cdd6f4 !important;
     }
     
-    /* Headers */
     h1 { color: #89b4fa !important; font-weight: 700 !important; }
     h2 { color: #cdd6f4 !important; font-weight: 600 !important; }
     h3 { color: #a6e3a1 !important; font-weight: 600 !important; }
     
-    /* Buttons */
     .stButton > button {
         background: linear-gradient(135deg, #3498db, #1a6fa8) !important;
         color: white !important;
@@ -81,30 +88,21 @@ st.markdown("""
         transform: translateY(-1px);
     }
     
-    /* Expander */
     [data-testid="stExpander"] {
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
         border-radius: 10px !important;
     }
     
-    /* Input fields */
     .stTextInput > div > div > input,
-    .stTextArea > div > div > textarea {
+    .stTextArea > div > div > textarea,
+    .stNumberInput > div > div > input {
         background: rgba(255, 255, 255, 0.05) !important;
         border: 1px solid rgba(52, 152, 219, 0.3) !important;
         border-radius: 8px !important;
         color: #cdd6f4 !important;
     }
     
-    /* Number inputs */
-    .stNumberInput > div > div > input {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(52, 152, 219, 0.3) !important;
-        color: #cdd6f4 !important;
-    }
-    
-    /* Select boxes */
     .stSelectbox > div > div {
         background: rgba(255, 255, 255, 0.05) !important;
         border: 1px solid rgba(52, 152, 219, 0.3) !important;
@@ -112,25 +110,15 @@ st.markdown("""
         border-radius: 8px !important;
     }
     
-    /* Progress bar */
     .stProgress > div > div {
         background: linear-gradient(90deg, #27ae60, #f39c12, #e74c3c) !important;
         border-radius: 999px;
     }
     
-    /* Divider */
     hr { border-color: rgba(255, 255, 255, 0.1) !important; }
-    
-    /* Alert boxes */
     .stAlert { border-radius: 10px !important; }
-    
-    /* DataFrame */
     [data-testid="stDataFrame"] { border-radius: 10px; }
-    
-    /* Main container padding */
     .main .block-container { padding-top: 1.5rem; }
-    
-    /* Plotly charts background transparency */
     .js-plotly-plot .plotly { background: transparent !important; }
 </style>
 """, unsafe_allow_html=True)
@@ -141,47 +129,52 @@ with st.sidebar:
     st.markdown("*Enterprise Fraud & Scam Prevention*")
     st.divider()
     
-    from frontend.api_client import health_check
     health = health_check()
     if "error" in health:
-        st.error(f"⚠️ Backend Offline")
+        st.error("⚠️ Backend Offline")
         st.caption("Start with: `uvicorn app.main:app --reload`")
     else:
-        st.success(f"✅ Backend Online")
+        st.success("✅ Backend Online")
         st.caption(f"v{health.get('version', '1.0.0')} — {health.get('environment', 'dev').title()}")
     
     st.divider()
-    st.caption("**Navigation**")
+    st.caption("**Navigation Modules**")
     st.markdown("""
-    - 📊 Dashboard
-    - 💳 Transaction Scanner
-    - 🔗 URL Scanner
-    - 📷 QR / Image Scanner
-    - ✉️ Message Analyzer
-    - 👤 Behavioral Profiler
-    - 🚨 Fraud Alerts
-    - 📈 Deep Analytics
-    - 🔬 Model Performance
-    - ℹ️ System Architecture
+    - 📊 **01** Executive Dashboard
+    - 💳 **02** Transaction Scanner
+    - 🔗 **03** URL Phishing Scanner
+    - 📷 **04** QR Image Scanner
+    - ✉️ **05** Message Analyzer
+    - 👤 **06** Behavioral Profiler
+    - 🚨 **07** Fraud Alerts Console
+    - 📈 **08** Deep Analytics
+    - 🔬 **09** Model Performance
+    - ℹ️ **10** System Architecture
+    - 🔀 **11** Risk Fusion
     """)
     
     st.divider()
-    st.caption("⚠️ **Disclaimer**: FraudShield AI is a decision-support platform. Risk scores indicate *potential* threats. Always verify through official channels before taking action.")
+    st.caption("⚠️ **Disclaimer**: FraudShield AI is a decision-support platform. Always verify through official banking channels.")
 
-# Default landing
+# Default landing page
 st.title("🛡️ FraudShield AI")
 st.subheader("Enterprise Multi-Signal Financial Fraud & Scam Prevention Platform")
 st.markdown("""
-Welcome to **FraudShield AI** — select a module from the sidebar pages to begin.
+Welcome to **FraudShield AI** — an end-to-end intelligent security platform that detects financial fraud and scam patterns across multiple attack surfaces.
+
+### 🧭 Select a Module from the Left Sidebar:
 
 | Module | Purpose |
-|--------|---------|
-| 📊 Dashboard | Real-time KPIs, fraud trends, and recent alerts |
-| 💳 Transaction Scanner | ML-powered transaction fraud scoring & SHAP explanation |
-| 🔗 URL Scanner | Phishing URL lexical & ML classifier |
-| 📷 QR / Image Scanner | QR decode, UPI analysis, crypto address detection |
-| ✉️ Message Analyzer | SMS/Email/WhatsApp phishing detection |
-| 🚨 Fraud Alerts | Alert triage and investigation console |
-| 📈 Deep Analytics | Advanced fraud analytics and pattern visualizations |
-| 🔬 Model Performance | ML model benchmark comparison and registry |
+| :--- | :--- |
+| 📊 **01 Executive Dashboard** | Real-time threat intelligence, KPIs, 8-day velocity timeline & geographic alerts |
+| 💳 **02 Transaction Scanner** | Supervised XGBoost fraud risk inference with interactive **SHAP explainability** |
+| 🔗 **03 URL Phishing Scanner** | Safe static lexical analysis across 17 URL & domain threat features |
+| 📷 **04 QR / Image Scanner** | Computer Vision QR decode, UPI analysis, crypto detection & link scanner chaining |
+| ✉️ **05 Message Analyzer** | NLP social engineering classifier detecting urgency, threats & impersonation |
+| 👤 **06 Behavioral Profiler** | Unsupervised Isolation Forest detecting anomalies against 30-day user baselines |
+| 🚨 **07 Fraud Alerts** | Investigation console for alert triage and lifecycle management |
+| 📈 **08 Deep Analytics** | Comprehensive Plotly breakdowns across transaction types, hours & channels |
+| 🔬 **09 Model Performance** | Benchmark comparison matrix and model registry |
+| ℹ️ **10 System Architecture** | Interactive architecture diagrams and REST API documentation |
+| 🔀 **11 Risk Fusion** | Multi-signal weighted fusion engine simulating **multi-stage scam chains** |
 """)
