@@ -1,0 +1,117 @@
+{
+  "models": {
+    "fraud_benchmark_logistic_regression": "v1.0.0",
+    "fraud_benchmark_random_forest": "v1.0.0",
+    "fraud_benchmark_xgboost": "v1.0.0",
+    "active_transaction_fraud": "fraud_model_v1",
+    "active_behavior_anomaly": "behavior_iforest_v1",
+    "active_url_phishing": "url_phishing_v1",
+    "active_message_phishing": "msg_phishing_v1"
+  },
+  "benchmarks": [
+    {
+      "model_key": "active_transaction_fraud",
+      "model_name": "Production Transaction Model (Logistic Regression)",
+      "model_type": "Supervised Ensemble",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "threshold": 0.5,
+      "model_version": "fraud_model_v1",
+      "training_date": "2026-09-18 09:29:28"
+    },
+    {
+      "model_key": "fraud_benchmark_logistic_regression",
+      "model_name": "Transaction Fraud (Logistic Regression)",
+      "model_type": "Supervised Classifier",
+      "precision": 0.9722,
+      "recall": 1.0,
+      "f1_score": 0.9859,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "threshold": 0.5,
+      "model_version": "v1.0.0",
+      "training_date": "2026-09-18 09:30:08"
+    },
+    {
+      "model_key": "fraud_benchmark_random_forest",
+      "model_name": "Transaction Fraud (Random Forest)",
+      "model_type": "Supervised Classifier",
+      "precision": 1.0,
+      "recall": 0.9857,
+      "f1_score": 0.9928,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "threshold": 0.5,
+      "model_version": "v1.0.0",
+      "training_date": "2026-09-18 09:30:09"
+    },
+    {
+      "model_key": "fraud_benchmark_xgboost",
+      "model_name": "Transaction Fraud (XGBoost)",
+      "model_type": "Supervised Classifier",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "threshold": 0.5,
+      "model_version": "v1.0.0",
+      "training_date": "2026-09-18 09:30:09"
+    },
+    {
+      "model_key": "active_transaction_fraud",
+      "model_name": "Production Transaction Model (XGBoost)",
+      "model_type": "Supervised Gradient Boosted Trees",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "threshold": 0.5,
+      "model_version": "fraud_model_v1",
+      "training_date": "2026-09-18 09:30:09"
+    },
+    {
+      "model_key": "active_behavior_anomaly",
+      "model_name": "Behavioral Anomaly Isolation Forest",
+      "model_type": "Unsupervised Anomaly Detector",
+      "precision": 0.924,
+      "recall": 0.892,
+      "f1_score": 0.9077,
+      "roc_auc": 0.951,
+      "pr_auc": 0.895,
+      "threshold": 0.5,
+      "model_version": "behavior_iforest_v1",
+      "training_date": "2026-09-18 09:30:09"
+    },
+    {
+      "model_key": "active_url_phishing",
+      "model_name": "Phishing URL Classifier (Random Forest)",
+      "model_type": "Supervised Feature Ensemble",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "threshold": 0.5,
+      "model_version": "url_phishing_v1",
+      "training_date": "2026-09-18 09:30:09"
+    },
+    {
+      "model_key": "active_message_phishing",
+      "model_name": "Message Phishing Classifier (TF-IDF + LogReg)",
+      "model_type": "NLP Linear Classifier",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "threshold": 0.5,
+      "model_version": "msg_phishing_v1",
+      "training_date": "2026-09-18 09:30:10"
+    }
+  ]
+}
