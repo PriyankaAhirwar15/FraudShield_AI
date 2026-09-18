@@ -5,22 +5,18 @@ An intelligent, full-stack AI/ML security platform engineered to detect multi-st
 
 ---
 
+<div align="center">
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-FraudShield_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://fraudshield-ai.streamlit.app)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-FraudShield_AI-181717?style=for-the-badge&logo=github)](https://github.com/PriyankaAhirwar15/FraudShield_AI)
-[![Streamlit App](https://img.shields.io/badge/Live_Dashboard-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](http://localhost:8501)
-[![FastAPI Docs](https://img.shields.io/badge/API_Docs-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](http://localhost:8000/docs)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.0+-EB5424?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
----
+### 🔗 **[Click Here to Launch Live Web Application](https://fraudshield-ai.streamlit.app)**
 
-## 🌐 Live Platform Access & Links
-
-| Service | Access Link | Description |
-| :--- | :--- | :--- |
-| 🖥️ **Live Web Dashboard** | **[http://localhost:8501](http://localhost:8501)** | Interactive Streamlit UI with 11 fraud analytics & scanner modules |
-| 📖 **Interactive API Docs** | **[http://localhost:8000/docs](http://localhost:8000/docs)** | Live Swagger / OpenAPI documentation for executing real-time inferences |
-| 🐙 **GitHub Repository** | **[github.com/PriyankaAhirwar15/FraudShield_AI](https://github.com/PriyankaAhirwar15/FraudShield_AI)** | Source code, ML models, test suites & documentation |
+</div>
 
 ---
 
@@ -68,7 +64,7 @@ ML SERVICES & STORAGE
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Run Locally)
 
 ### 1️⃣ Clone & Install
 ```bash
@@ -77,14 +73,14 @@ cd FraudShield_AI
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Start the Entire Platform (One Command)
+### 2️⃣ Start Platform (One Command)
 ```bash
 python run.py
 ```
 *(Or double-click `start.bat` on Windows)*
 
-- 🌐 **Streamlit UI Dashboard**: `http://localhost:8501`
-- 📖 **FastAPI Swagger Docs**: `http://localhost:8000/docs`
+- **Web Dashboard**: `http://localhost:8501`
+- **FastAPI Swagger Docs**: `http://localhost:8000/docs`
 
 ---
 
