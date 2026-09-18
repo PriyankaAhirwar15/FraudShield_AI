@@ -5,12 +5,22 @@ An intelligent, full-stack AI/ML security platform engineered to detect multi-st
 
 ---
 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-FraudShield_AI-181717?style=for-the-badge&logo=github)](https://github.com/PriyankaAhirwar15/FraudShield_AI)
+[![Streamlit App](https://img.shields.io/badge/Live_Dashboard-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](http://localhost:8501)
+[![FastAPI Docs](https://img.shields.io/badge/API_Docs-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](http://localhost:8000/docs)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.60+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.0+-EB5424?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.ai)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+---
+
+## 🌐 Live Platform Access & Links
+
+| Service | Access Link | Description |
+| :--- | :--- | :--- |
+| 🖥️ **Live Web Dashboard** | **[http://localhost:8501](http://localhost:8501)** | Interactive Streamlit UI with 11 fraud analytics & scanner modules |
+| 📖 **Interactive API Docs** | **[http://localhost:8000/docs](http://localhost:8000/docs)** | Live Swagger / OpenAPI documentation for executing real-time inferences |
+| 🐙 **GitHub Repository** | **[github.com/PriyankaAhirwar15/FraudShield_AI](https://github.com/PriyankaAhirwar15/FraudShield_AI)** | Source code, ML models, test suites & documentation |
 
 ---
 
@@ -95,19 +105,21 @@ pytest -v
 
 ---
 
-## 📡 API Endpoints
+## 📡 API Endpoints Reference
+
+Base URL: `http://localhost:8000/api/v1`
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `GET` | `/api/v1/health` | Service health status |
-| `POST` | `/api/v1/fraud/predict` | Transaction fraud scoring + SHAP factor attribution |
-| `POST` | `/api/v1/behavior/analyze` | User behavioral anomaly evaluation |
-| `POST` | `/api/v1/url/scan` | Phishing URL lexical classifier |
-| `POST` | `/api/v1/message/analyze` | Phishing message social engineering analyzer |
-| `POST` | `/api/v1/qr/scan` | QR code decode and payload risk assessment |
-| `POST` | `/api/v1/risk/assess` | Multi-signal fusion assessment with scam chain logic |
-| `GET` | `/api/v1/alerts` | Paginated fraud alert triage records |
-| `GET` | `/api/v1/analytics/overview` | KPI overview and threat analytics |
+| `GET` | `/health` | Service health status |
+| `POST` | `/fraud/predict` | Transaction fraud scoring + SHAP factor attribution |
+| `POST` | `/behavior/analyze` | User behavioral anomaly evaluation |
+| `POST` | `/url/scan` | Phishing URL lexical classifier |
+| `POST` | `/message/analyze` | Phishing message social engineering analyzer |
+| `POST` | `/qr/scan` | QR code decode and payload risk assessment |
+| `POST` | `/risk/assess` | Multi-signal fusion assessment with scam chain logic |
+| `GET` | `/alerts` | Paginated fraud alert triage records |
+| `GET` | `/analytics/overview` | KPI overview and threat analytics |
 
 ---
 
