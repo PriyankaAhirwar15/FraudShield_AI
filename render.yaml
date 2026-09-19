@@ -1,0 +1,18 @@
+services:
+  # Option 1: Unified Service (FastAPI Backend + Streamlit UI in 1 Free Web Service)
+  - type: web
+    name: fraudshield-ai
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: chmod +x start.sh && ./start.sh
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: BACKEND_URL
+        value: http://127.0.0.1:8000

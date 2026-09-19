@@ -1,7 +1,13 @@
+import os
 import requests
 from typing import Optional, Dict, Any
 
-BASE_URL = "http://localhost:8000/api/v1"
+_raw_backend = os.getenv("BACKEND_URL", "http://localhost:8000").rstrip("/")
+if not _raw_backend.endswith("/api/v1"):
+    BASE_URL = f"{_raw_backend}/api/v1"
+else:
+    BASE_URL = _raw_backend
+
 TIMEOUT = 30
 
 def _get(path: str) -> Dict[str, Any]:
@@ -10,7 +16,7 @@ def _get(path: str) -> Dict[str, Any]:
         r.raise_for_status()
         return r.json()
     except requests.exceptions.ConnectionError:
-        return {"error": "Cannot connect to FraudShield AI backend. Make sure FastAPI is running on port 8000."}
+        return {"error": f"Cannot connect to FraudShield AI backend at {BASE_URL}. Make sure FastAPI backend is running."}
     except Exception as e:
         return {"error": str(e)}
 
@@ -20,7 +26,7 @@ def _post(path: str, data: Dict[str, Any]) -> Dict[str, Any]:
         r.raise_for_status()
         return r.json()
     except requests.exceptions.ConnectionError:
-        return {"error": "Cannot connect to FraudShield AI backend. Make sure FastAPI is running on port 8000."}
+        return {"error": f"Cannot connect to FraudShield AI backend at {BASE_URL}. Make sure FastAPI backend is running."}
     except Exception as e:
         return {"error": str(e)}
 

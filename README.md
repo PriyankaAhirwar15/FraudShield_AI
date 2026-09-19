@@ -7,14 +7,14 @@ An intelligent, full-stack AI/ML security platform engineered to detect multi-st
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-FraudShield_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://fraudshield-ai.streamlit.app)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-FraudShield_App-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://fraudshield-ai-h22k.onrender.com)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-FraudShield_AI-181717?style=for-the-badge&logo=github)](https://github.com/PriyankaAhirwar15/FraudShield_AI)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.0+-EB5424?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-### 🔗 **[Explore the Live Web Application](https://fraudshieldai-xnvbahtway9jqzrgdx43t6.streamlit.app/)**
+### 🔗 **[Click Here to Launch Live Web Application (Render)](https://fraudshield-ai-h22k.onrender.com)** | **[Streamlit Mirror](https://fraudshieldai-xnvbahtway9jqzrgdx43t6.streamlit.app/)**
 
 </div>
 
@@ -89,6 +89,34 @@ python run.py
 ```bash
 docker-compose up --build
 ```
+
+---
+
+## ☁️ Deploy to Render
+
+You can deploy FraudShield AI directly to [Render](https://render.com) using either the **1-Service Blueprint (Free Tier)** or **Manual Web Service**:
+
+### Option 1: Automatic Blueprint (Recommended)
+1. Push your code to GitHub.
+2. Log in to [Render Dashboard](https://dashboard.render.com).
+3. Click **New +** → **Blueprint**.
+4. Connect your `FraudShield_AI` repository.
+5. Render will automatically detect `render.yaml` and configure the build & start commands!
+
+### Option 2: Manual Web Service Setup
+1. On Render Dashboard, click **New +** → **Web Service**.
+2. Connect your GitHub repository.
+3. Configure the following settings:
+   - **Environment**: `Python`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `chmod +x start.sh && ./start.sh`
+   - **Instance Type**: `Free`
+4. Add Environment Variables:
+   - `PYTHON_VERSION`: `3.10.12`
+   - `ENVIRONMENT`: `production`
+   - `DEBUG`: `false`
+   - `BACKEND_URL`: `http://127.0.0.1:8000`
+5. Click **Deploy Web Service**!
 
 ---
 
