@@ -1,79 +1,159 @@
 # 🛡️ FraudShield AI
 ### **Enterprise Multi-Signal Financial Fraud & Scam Prevention Platform**
 
+An intelligent, full-stack AI/ML security platform engineered to detect multi-stage financial fraud, malicious phishing links, social engineering scams, and fraudulent QR payments in real time.
+
+---
+
 <div align="center">
-  <svg width="100%" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FraudShield AI Animated Banner">
-    <defs>
-      <linearGradient id="bgGlow" x1="0%" x2="100%" y1="0%" y2="100%">
-        <stop offset="0%" stop-color="#081529">
-          <animate attributeName="stop-color" values="#081529;#0d1f3b;#07131f;#081529" dur="8s" repeatCount="indefinite" />
-        </stop>
-        <stop offset="50%" stop-color="#153b67">
-          <animate attributeName="stop-color" values="#153b67;#1d4d7c;#0c2744;#153b67" dur="8s" repeatCount="indefinite" />
-        </stop>
-        <stop offset="100%" stop-color="#0b172c">
-          <animate attributeName="stop-color" values="#0b172c;#122d4c;#0a1627;#0b172c" dur="8s" repeatCount="indefinite" />
-        </stop>
-      </linearGradient>
-      <linearGradient id="pulseLine" x1="0%" x2="100%" y1="0%" y2="0%">
-        <stop offset="0%" stop-color="#00e5ff">
-          <animate attributeName="stop-color" values="#00e5ff;#46E3B7;#6ee7ff;#00e5ff" dur="4s" repeatCount="indefinite" />
-        </stop>
-        <stop offset="100%" stop-color="#8b5cf6">
-          <animate attributeName="stop-color" values="#8b5cf6;#22d3ee;#a78bfa;#8b5cf6" dur="4s" repeatCount="indefinite" />
-        </stop>
-      </linearGradient>
-      <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="6" result="blur"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
 
-    <rect width="1200" height="260" rx="28" fill="url(#bgGlow)"/>
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-FraudShield_App-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://fraudshield-ai-h22k.onrender.com)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-FraudShield_AI-181717?style=for-the-badge&logo=github)](https://github.com/PriyankaAhirwar15/FraudShield_AI)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![XGBoost](https://img.shields.io/badge/XGBoost-2.0+-EB5424?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.ai)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-    <g opacity="0.9">
-      <circle cx="110" cy="65" r="8" fill="#46E3B7" filter="url(#softGlow)">
-        <animate attributeName="cy" values="65;75;65" dur="2.8s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="170" cy="110" r="12" fill="#00e5ff" filter="url(#softGlow)">
-        <animate attributeName="r" values="12;17;12" dur="3s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="1160" cy="80" r="10" fill="#8b5cf6" filter="url(#softGlow)">
-        <animate attributeName="cy" values="80;92;80" dur="2.6s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="1090" cy="170" r="14" fill="#60a5fa" filter="url(#softGlow)">
-        <animate attributeName="r" values="14;19;14" dur="3.2s" repeatCount="indefinite"/>
-      </circle>
-    </g>
+### 🔗 **[Click Here to Launch Live Web Application (Render)](https://fraudshield-ai-h22k.onrender.com)** | **[Streamlit Mirror](https://fraudshieldai-xnvbahtway9jqzrgdx43t6.streamlit.app/)**
 
-    <g>
-      <rect x="55" y="40" width="250" height="28" rx="14" fill="#0f172a" opacity="0.5"/>
-      <rect x="70" y="48" width="156" height="12" rx="6" fill="url(#pulseLine)" filter="url(#softGlow)">
-        <animate attributeName="width" values="156;208;156" dur="2.8s" repeatCount="indefinite"/>
-      </rect>
-      <text x="58" y="118" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" fill="#F8FAFC">FraudShield AI</text>
-      <text x="58" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#C7D2FE">Explainable AI for fraud prevention, scam detection, and risk intelligence</text>
-      <line x1="58" y1="182" x2="610" y2="182" stroke="url(#pulseLine)" stroke-width="5" stroke-linecap="round" filter="url(#softGlow)">
-        <animate attributeName="stroke-dasharray" values="0 600; 260 340; 0 600" dur="3s" repeatCount="indefinite"/>
-      </line>
-    </g>
-
-    <g transform="translate(780 35)">
-      <rect x="0" y="0" width="330" height="170" rx="22" fill="#091325" stroke="#3B82F6" stroke-opacity="0.6"/>
-      <text x="28" y="42" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#93C5FD">Threat Risk Index</text>
-      <text x="28" y="95" font-family="Segoe UI, Arial, sans-serif" font-size="52" font-weight="700" fill="#46E3B7">94%</text>
-      <text x="28" y="122" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#CBD5E1">Real-time suspicious activity score</text>
-      <g transform="translate(28 132)">
-        <rect width="270" height="12" rx="6" fill="#0F172A"/>
-        <rect width="250" height="12" rx="6" fill="url(#pulseLine)" filter="url(#softGlow)">
-          <animate attributeName="width" values="150;250;180;250" dur="3.5s" repeatCount="indefinite"/>
-        </rect>
-      </g>
-    </g>
-  </svg>
 </div>
 
-An intelligent, full-stack AI/ML security platform engineered to detect multi-stage financial fraud, malicious phishing links, social engineering scams, and fraudulent QR payments in real time.
+---
+
+## 🌟 Overview
+
+Modern cyber fraud operates in coordinated stages:
+$$\text{Phishing Message} \longrightarrow \text{Malicious URL} \longrightarrow \text{Fake Payment QR} \longrightarrow \text{Fraudulent Transaction}$$
+
+**FraudShield AI** combines 5 specialized detection engines through an adaptive **Multi-Signal Fusion Engine** with **SHAP explainability** and prescriptive safety actions.
+
+---
+
+## ⚡ Core Detection Engines
+
+| Engine | Technology | Capabilities |
+| :--- | :--- | :--- |
+| 💳 **Transaction Fraud** | `XGBoost` + `SHAP TreeExplainer` | Real-time financial scoring with per-factor SHAP explainability waterfall |
+| 👤 **Behavioral Anomaly** | `Isolation Forest` (Unsupervised) | Flags deviations from 30-day user baselines (nocturnal activity, novel devices/beneficiaries) |
+| 🔗 **Phishing URL Scanner** | `Random Forest` Lexical NLP | Static analysis across 17 lexical & entropy domain threat indicators |
+| ✉️ **Message Analyzer** | `TF-IDF` + `Logistic Regression` | Detects social engineering urgency, authority impersonation & OTP harvesting |
+| 📷 **QR / Image Scanner** | `OpenCV QRCodeDetector` | Decodes QR payloads, detects fraudulent UPI IDs, crypto traps & chains to URL scanner |
+| 🔀 **Risk Fusion** | Weighted Adaptive Ensemble | Cross-vector score fusion with **Scam Chain Escalation** ($\ge 85$ Critical Policy) |
+
+---
+
+## 🏗️ Architecture
+
+```
+STREAMLIT DASHBOARD (Port 8501)
+ ├── 📊 Executive Dashboard    ├── 👤 Behavioral Profiler    ├── 🔀 Risk Fusion
+ ├── 💳 Transaction Scanner    ├── 🚨 Fraud Alerts Console   ├── 🔬 Model Performance
+ ├── 🔗 URL Phishing Scanner   ├── 📈 Deep Analytics         └── ℹ️ System Architecture
+ └── 📷 QR Image Scanner       └── ✉️ Message Analyzer
+                │
+                ▼  HTTP REST API
+FASTAPI BACKEND ENGINE (Port 8000)
+ ├── /fraud/predict            ├── /url/scan                 ├── /risk/assess
+ ├── /behavior/analyze         ├── /message/analyze          └── /analytics/overview
+                │
+                ▼
+ML SERVICES & STORAGE
+ ├── XGBoost + SHAP TreeExplainer    ├── Random Forest & Isolation Forest
+ └── SQLite / PostgreSQL DB          └── Scikit-Learn TF-IDF NLP Pipeline
+```
+
+---
+
+## 🚀 Quick Start (Run Locally)
+
+### 1️⃣ Clone & Install
+```bash
+git clone https://github.com/PriyankaAhirwar15/FraudShield_AI.git
+cd FraudShield_AI
+pip install -r requirements.txt
+```
+
+### 2️⃣ Start Platform (One Command)
+```bash
+python run.py
+```
+*(Or double-click `start.bat` on Windows)*
+
+- **Web Dashboard**: `http://localhost:8501`
+- **FastAPI Swagger Docs**: `http://localhost:8000/docs`
+
+---
+
+## 🐳 Docker Deployment
+
+```bash
+docker-compose up --build
+```
+
+---
+
+## ☁️ Deploy to Render
+
+You can deploy FraudShield AI directly to [Render](https://render.com) using either the **1-Service Blueprint (Free Tier)** or **Manual Web Service**:
+
+### Option 1: Automatic Blueprint (Recommended)
+1. Push your code to GitHub.
+2. Log in to [Render Dashboard](https://dashboard.render.com).
+3. Click **New +** → **Blueprint**.
+4. Connect your `FraudShield_AI` repository.
+5. Render will automatically detect `render.yaml` and configure the build & start commands!
+
+### Option 2: Manual Web Service Setup
+1. On Render Dashboard, click **New +** → **Web Service**.
+2. Connect your GitHub repository.
+3. Configure the following settings:
+   - **Environment**: `Python`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `chmod +x start.sh && ./start.sh`
+   - **Instance Type**: `Free`
+4. Add Environment Variables:
+   - `PYTHON_VERSION`: `3.10.12`
+   - `ENVIRONMENT`: `production`
+   - `DEBUG`: `false`
+   - `BACKEND_URL`: `http://127.0.0.1:8000`
+5. Click **Deploy Web Service**!
+
+---
+
+## 🧪 Automated Tests
+
+```bash
+pytest -v
+```
+*(14/14 unit and integration tests passing)*
+
+---
+
+## 📡 API Endpoints Reference
+
+Base URL: `http://localhost:8000/api/v1`
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/health` | Service health status |
+| `POST` | `/fraud/predict` | Transaction fraud scoring + SHAP factor attribution |
+| `POST` | `/behavior/analyze` | User behavioral anomaly evaluation |
+| `POST` | `/url/scan` | Phishing URL lexical classifier |
+| `POST` | `/message/analyze` | Phishing message social engineering analyzer |
+| `POST` | `/qr/scan` | QR code decode and payload risk assessment |
+| `POST` | `/risk/assess` | Multi-signal fusion assessment with scam chain logic |
+| `GET` | `/alerts` | Paginated fraud alert triage records |
+| `GET` | `/analytics/overview` | KPI overview and threat analytics |
+
+---
+
+## 👩‍💻 Built by Priyanka Ahirwar
+
+**Developed by [Priyanka Ahirwar](https://github.com/PriyankaAhirwar15)**  
+*AI & Machine Learning Security Engineering Project*
+
+---
+
+## ⚠️ Disclaimer
+
+**FraudShield AI** is an artificial intelligence demonstration and decision-support platform designed for research, portfolio, and educational purposes. Risk scores and threat classifications represent model-driven assessments and should not be treated as professional financial, legal, or compliance advice.
