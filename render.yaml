@@ -1,5 +1,6 @@
 services:
-  # Option 1: Unified Service (FastAPI Backend + Streamlit UI in 1 Free Web Service)
+  # FastAPI Backend — exposed publicly on Render
+  # Streamlit frontend is deployed separately on Streamlit Cloud
   - type: web
     name: fraudshield-ai
     env: python
@@ -15,4 +16,4 @@ services:
       - key: DEBUG
         value: false
       - key: BACKEND_URL
-        value: http://127.0.0.1:8000
+        value: https://fraudshield-ai-h22k.onrender.com
