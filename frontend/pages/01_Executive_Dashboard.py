@@ -25,7 +25,11 @@ with st.spinner("Loading threat intelligence data..."):
 
 if "error" in data:
     st.error(f"⚠️ Backend unreachable: {data['error']}")
-    st.info("Start the FastAPI backend: `uvicorn app.main:app --reload`")
+    st.info(
+        "The FraudShield AI backend is currently unavailable. "
+        "If you are the developer, ensure the FastAPI service is running and "
+        "the `BACKEND_URL` secret/environment variable points to the deployed backend."
+    )
     st.stop()
 
 kpi = data.get("kpi", {})

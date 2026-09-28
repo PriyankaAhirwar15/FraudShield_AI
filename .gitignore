@@ -16,3 +16,4 @@ ml/saved_models/*.pkl
 .DS_Store
 data/raw/*
 !data/raw/.gitkeep
+.streamlit/secrets.toml

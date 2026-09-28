@@ -132,7 +132,7 @@ with st.sidebar:
     health = health_check()
     if "error" in health:
         st.error("⚠️ Backend Offline")
-        st.caption("Start with: `uvicorn app.main:app --reload`")
+        st.caption("Backend service unreachable. Check BACKEND_URL config.")
     else:
         st.success("✅ Backend Online")
         st.caption(f"v{health.get('version', '1.0.0')} — {health.get('environment', 'dev').title()}")

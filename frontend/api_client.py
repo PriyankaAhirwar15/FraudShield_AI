@@ -2,13 +2,40 @@ import os
 import requests
 from typing import Optional, Dict, Any
 
-_raw_backend = os.getenv("BACKEND_URL", "http://localhost:8000").rstrip("/")
+
+def _resolve_backend_url() -> str:
+    """
+    Resolve the backend URL with this priority order:
+      1. Streamlit secrets  (st.secrets["BACKEND_URL"])  — used on Streamlit Cloud
+      2. Environment variable BACKEND_URL               — used on Render / Docker / local
+      3. Same-host localhost fallback                   — last resort for local dev only
+    """
+    # 1. Try Streamlit secrets (only available when running inside Streamlit)
+    try:
+        import streamlit as st
+        url = st.secrets.get("BACKEND_URL", None)
+        if url:
+            return url.rstrip("/")
+    except Exception:
+        pass
+
+    # 2. Environment variable (Render, Docker, etc.)
+    url = os.getenv("BACKEND_URL", "").strip()
+    if url:
+        return url.rstrip("/")
+
+    # 3. Local dev fallback — only for localhost
+    return "http://localhost:8000"
+
+
+_raw_backend = _resolve_backend_url()
 if not _raw_backend.endswith("/api/v1"):
     BASE_URL = f"{_raw_backend}/api/v1"
 else:
     BASE_URL = _raw_backend
 
 TIMEOUT = 30
+
 
 def _get(path: str) -> Dict[str, Any]:
     try:
@@ -20,6 +47,7 @@ def _get(path: str) -> Dict[str, Any]:
     except Exception as e:
         return {"error": str(e)}
 
+
 def _post(path: str, data: Dict[str, Any]) -> Dict[str, Any]:
     try:
         r = requests.post(f"{BASE_URL}{path}", json=data, timeout=TIMEOUT)
@@ -29,6 +57,7 @@ def _post(path: str, data: Dict[str, Any]) -> Dict[str, Any]:
         return {"error": f"Cannot connect to FraudShield AI backend at {BASE_URL}. Make sure FastAPI backend is running."}
     except Exception as e:
         return {"error": str(e)}
+
 
 def _post_file(path: str, file_bytes: bytes, filename: str) -> Dict[str, Any]:
     try:
