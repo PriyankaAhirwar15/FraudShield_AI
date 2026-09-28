@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -e
 
 echo "========================================================="
@@ -17,4 +17,4 @@ echo "[2/2] Launching FastAPI Backend on port ${RENDER_PORT}..."
 exec uvicorn app.main:app \
     --host 0.0.0.0 \
     --port "${RENDER_PORT}" \
-    --workers 1
+    --workers 1

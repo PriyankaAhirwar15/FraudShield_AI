@@ -1,0 +1,22 @@
+# Permanently enforce LF line endings for shell scripts on all platforms
+# This prevents Windows CRLF from breaking Linux deploys on Render
+
+# Default: normalize all text files
+* text=auto
+
+# Shell scripts MUST always use LF (Linux/Mac line endings)
+*.sh text eol=lf
+
+# Python files - LF
+*.py text eol=lf
+
+# Config/YAML files - LF
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+
+# Windows batch files keep CRLF (they need it)
+*.bat text eol=crlf
+*.cmd text eol=crlf
