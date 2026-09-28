@@ -38,38 +38,50 @@ TIMEOUT = 30
 
 
 def _get(path: str) -> Dict[str, Any]:
+    url = f"{BASE_URL}{path}"
     try:
-        r = requests.get(f"{BASE_URL}{path}", timeout=TIMEOUT)
+        r = requests.get(url, timeout=TIMEOUT)
         r.raise_for_status()
         return r.json()
     except requests.exceptions.ConnectionError:
-        return {"error": f"Cannot connect to FraudShield AI backend at {BASE_URL}. Make sure FastAPI backend is running."}
+        return {"error": f"Cannot connect to backend at {BASE_URL}. Service may be offline."}
+    except requests.exceptions.Timeout:
+        return {"error": f"Backend request timed out ({TIMEOUT}s). The service may be cold-starting — please try again in 30 seconds."}
+    except ValueError:
+        # Render returns HTML during cold-start / redeploy instead of JSON
+        return {"error": f"Backend returned non-JSON response. The service at {BASE_URL} may still be warming up — please wait 30 seconds and refresh."}
     except Exception as e:
         return {"error": str(e)}
 
 
 def _post(path: str, data: Dict[str, Any]) -> Dict[str, Any]:
+    url = f"{BASE_URL}{path}"
     try:
-        r = requests.post(f"{BASE_URL}{path}", json=data, timeout=TIMEOUT)
+        r = requests.post(url, json=data, timeout=TIMEOUT)
         r.raise_for_status()
         return r.json()
     except requests.exceptions.ConnectionError:
-        return {"error": f"Cannot connect to FraudShield AI backend at {BASE_URL}. Make sure FastAPI backend is running."}
+        return {"error": f"Cannot connect to backend at {BASE_URL}. Service may be offline."}
+    except requests.exceptions.Timeout:
+        return {"error": f"Backend request timed out. The service may be cold-starting — please try again in 30 seconds."}
+    except ValueError:
+        return {"error": f"Backend returned non-JSON response. The service may still be warming up — please wait 30 seconds and refresh."}
     except Exception as e:
         return {"error": str(e)}
 
 
 def _post_file(path: str, file_bytes: bytes, filename: str) -> Dict[str, Any]:
+    url = f"{BASE_URL}{path}"
     try:
-        r = requests.post(
-            f"{BASE_URL}{path}",
-            files={"file": (filename, file_bytes, "image/png")},
-            timeout=TIMEOUT
-        )
+        r = requests.post(url, files={"file": (filename, file_bytes, "image/png")}, timeout=TIMEOUT)
         r.raise_for_status()
         return r.json()
     except requests.exceptions.ConnectionError:
         return {"error": "Cannot connect to FraudShield AI backend."}
+    except requests.exceptions.Timeout:
+        return {"error": "Backend request timed out. Please try again in 30 seconds."}
+    except ValueError:
+        return {"error": "Backend returned non-JSON response. The service may still be warming up — please wait 30 seconds and refresh."}
     except Exception as e:
         return {"error": str(e)}
 
